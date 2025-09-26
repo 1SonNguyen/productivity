@@ -1,0 +1,12 @@
+{
+  "name": "Orbit Kit – All‑in‑One Productivity",
+  "short_name": "Orbit Kit",
+  "start_url": "./index.html#/",
+  "description": "Tasks, notes, habits, pomodoro, kanban, calendar, docs, search – Material 3.",
+  "display": "standalone",
+  "background_color": "#0f1116",
+  "theme_color": "#4452ff",
+  "icons": [
+    { "src": "./assets/icon.svg", "sizes": "256x256", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

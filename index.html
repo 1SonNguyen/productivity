@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#4452ff" />
+    <title>Orbit Kit – All‑in‑One Productivity</title>
+    <meta name="description" content="A beautiful Material 3 productivity app: tasks, notes, habits, pomodoro, kanban, calendar, search." />
+
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./assets/icon.svg" />
+
+    <!-- Material Symbols and Roboto fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1" rel="stylesheet" />
+
+    <style>
+      :root {
+        --md-ref-typeface-plain: Roboto, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+        --md-sys-color-primary: #4452ff;
+        --md-sys-color-on-primary: #ffffff;
+        --md-sys-color-primary-container: #dee0ff;
+        --md-sys-color-on-primary-container: #00136e;
+        --md-sys-color-secondary: #5b5d72;
+        --md-sys-color-on-secondary: #ffffff;
+        --md-sys-color-surface: #fdfbff;
+        --md-sys-color-on-surface: #1b1b21;
+        --md-sys-color-surface-variant: #e3e1ec;
+        --md-sys-color-outline: #757680;
+        color-scheme: light;
+      }
+      html[data-theme="dark"] {
+        --md-sys-color-primary: #b8c3ff;
+        --md-sys-color-on-primary: #0e227a;
+        --md-sys-color-primary-container: #2a3acf;
+        --md-sys-color-on-primary-container: #dee0ff;
+        --md-sys-color-secondary: #c5c6dc;
+        --md-sys-color-on-secondary: #2f3146;
+        --md-sys-color-surface: #0f1116;
+        --md-sys-color-on-surface: #e3e2e8;
+        --md-sys-color-surface-variant: #444653;
+        --md-sys-color-outline: #8e909c;
+        color-scheme: dark;
+      }
+      body {
+        margin: 0;
+        font-family: var(--md-ref-typeface-plain);
+        background: var(--md-sys-color-surface);
+        color: var(--md-sys-color-on-surface);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        vertical-align: middle;
+      }
+      noscript {
+        display: block;
+        padding: 1rem;
+        color: #b00020;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>This app requires JavaScript to run.</noscript>
+    <app-root></app-root>
+
+    <script type="module">
+      // Persist and apply theme early to avoid FOUC
+      try {
+        const savedTheme = localStorage.getItem('ok.theme');
+        if (savedTheme === 'dark' || savedTheme === 'light') {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+      } catch (e) {}
+    </script>
+
+    <script type="module" src="./src/app.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+  </html>
+
